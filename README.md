@@ -1,7 +1,5 @@
 # 🌤️ Breezo – Real-Time Weather Intelligence Platform
 
-![Breezo Banner](https://raw.githubusercontent.com/harshitt018/Breezo/main/public/banner.png) <!-- Optional: Replace with an actual banner if you have one -->
-
 > **Breezo** is a modern, real-time weather web application designed to deliver precise environmental data with a strong emphasis on performance, scalability, and user experience.
 
 ---
