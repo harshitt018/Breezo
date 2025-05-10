@@ -57,3 +57,53 @@ Whether you're a casual user or a weather enthusiast, Breezo ensures you stay in
    ```bash
    git clone https://github.com/harshitt018/Breezo.git
    cd Breezo
+
+2. **Install dependencies**
+   ```bash
+   npm install
+
+3. **Set up your .env file**
+   ```bash
+   VITE_OPENWEATHER_API_KEY = your_api_key_here
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+
+---
+
+## 📎 Useful Links
+
+- [OpenWeather API Documentation](https://openweathermap.org/api)  
+- [Tanstack Query Docs](https://tanstack.com/query/latest)  
+- [Recharts Docs](https://recharts.org/en-US)  
+- [Shadcn/UI Documentation](https://ui.shadcn.com/docs/installation)
+
+---
+
+## 💬 Contributing
+
+Contributions, suggestions, and feature requests are welcome!
+
+Please feel free to fork the repo and submit a pull request.
+
+---
+
+## 🙋‍♂️ Author
+
+
+**Harshit Jaiswal**
+
+📍 Mumbai, India
+
+💼 Aspiring Data Scientist | Passionate about clean architecture, APIs & modern frontend tech
+
+---
+
+## ⭐️ Show Your Support
+
+
+If you like this project, leave a ⭐️ on the GitHub repo.
+
+It really helps me stay motivated and keep building more projects like this!
+
