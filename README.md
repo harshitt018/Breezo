@@ -47,7 +47,7 @@ Whether you're a casual user or a weather enthusiast, Breezo ensures you stay in
 
 <!-- Add relevant screenshots -->
 <img src="https://github.com/harshitt018/Breezo/blob/main/Screenshots/Screenshot%202025-05-10%20192358.png" alt="Breezo Dashboard" width="75%">
-<img src="https://raw.githubusercontent.com/harshitt018/Breezo/main/public/screenshot2.png" alt="Forecast Charts" width="100%">
+<img src="https://github.com/harshitt018/Breezo/blob/main/Screenshots/Screenshot%202025-05-10%20192414.png" alt="Forecast Charts" width="75%">
 
 ---
 
