@@ -17,20 +17,23 @@ import {
 import { Button } from "@/components/ui/button";
 import { useFavorites } from "@/hooks/use-favorite";
 
+// Ensure all hooks and components being imported above are implemented and correctly typed
+// This will solve "Cannot find module" or type-related issues
+
 export function CitySearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const { data: locations, isLoading } = useLocationSearch(query);
-  const { favorites } = useFavorites();
-  const { history, clearHistory, addToHistory } = useSearchHistory();
+  const { data: locations = [], isLoading } = useLocationSearch(query);
+  const { favorites = [] } = useFavorites();
+  const { history = [], clearHistory, addToHistory } = useSearchHistory();
 
   const handleSelect = (cityData: string) => {
     const [lat, lon, name, country] = cityData.split("|");
 
     // Add to search history
-    addToHistory.mutate({
+    addToHistory?.mutate?.({
       query,
       name,
       lat: parseFloat(lat),
@@ -100,7 +103,7 @@ export function CitySearch() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => clearHistory.mutate()}
+                      onClick={() => clearHistory?.mutate?.()}
                     >
                       <XCircle className="h-4 w-4" />
                       Clear
@@ -123,7 +126,7 @@ export function CitySearch() {
                         , {item.country}
                       </span>
                       <span className="ml-auto text-xs text-muted-foreground">
-                        {format(item.searchedAt, "MMM d, h:mm a")}
+                        {format(new Date(item.searchedAt), "MMM d, h:mm a")}
                       </span>
                     </CommandItem>
                   ))}
@@ -133,14 +136,14 @@ export function CitySearch() {
 
             {/* Search Results */}
             <CommandSeparator />
-            {locations && locations.length > 0 && (
+            {locations.length > 0 && (
               <CommandGroup heading="Suggestions">
                 {isLoading && (
                   <div className="flex items-center justify-center p-4">
                     <Loader2 className="h-4 w-4 animate-spin" />
                   </div>
                 )}
-                {locations?.map((location) => (
+                {locations.map((location) => (
                   <CommandItem
                     key={`${location.lat}-${location.lon}`}
                     value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}

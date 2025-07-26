@@ -39,7 +39,7 @@ function FavoriteCityTablet({
       <Button
         variant="ghost"
         size="icon"
-        className="absolute right-1 top-1 h-6 w-6 rounded-full p-0  hover:text-destructive-foreground group-hover:opacity-100"
+        className="absolute right-1 top-1 h-6 w-6 rounded-full p-0 hover:text-destructive-foreground group-hover:opacity-100"
         onClick={(e) => {
           e.stopPropagation();
           onRemove(id);
@@ -82,6 +82,13 @@ function FavoriteCityTablet({
   );
 }
 
+interface City {
+  id: string;
+  name: string;
+  lat: number;
+  lon: number;
+}
+
 export function FavoriteCities() {
   const { favorites, removeFavorite } = useFavorites();
 
@@ -94,7 +101,7 @@ export function FavoriteCities() {
       <h1 className="text-xl font-bold tracking-tight">Favorites</h1>
       <ScrollArea className="w-full pb-4">
         <div className="flex gap-4">
-          {favorites.map((city) => (
+          {favorites.map((city: City) => (
             <FavoriteCityTablet
               key={city.id}
               {...city}

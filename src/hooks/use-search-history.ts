@@ -1,14 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useLocalStorage } from "./use-local-storage";
 
-interface SearchHistoryItem {
-  id: string;
-  query: string;
-  lat: number;
-  lon: number;
+interface City {
   name: string;
   country: string;
   state?: string;
+  lat: number;
+  lon: number;
+}
+
+interface SearchHistoryItem extends City {
+  id: string;
+  query: string;
   searchedAt: number;
 }
 
@@ -26,18 +29,16 @@ export function useSearchHistory() {
   });
 
   const addToHistory = useMutation({
-    mutationFn: async (
-      search: Omit<SearchHistoryItem, "id" | "searchedAt">
-    ) => {
+    mutationFn: async (city: Omit<SearchHistoryItem, "id" | "searchedAt">) => {
       const newSearch: SearchHistoryItem = {
-        ...search,
-        id: `${search.lat}-${search.lon}-${Date.now()}`,
+        ...city,
+        id: `${city.lat}-${city.lon}-${Date.now()}`,
         searchedAt: Date.now(),
       };
 
       // Remove duplicates and keep only last 10 searches
       const filteredHistory = history.filter(
-        (item) => !(item.lat === search.lat && item.lon === search.lon)
+        (item) => !(item.lat === city.lat && item.lon === city.lon)
       );
       const newHistory = [newSearch, ...filteredHistory].slice(0, 10);
 
